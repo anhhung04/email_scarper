@@ -5,7 +5,7 @@ import urllib.parse
 from collections import deque
 from bs4 import BeautifulSoup
 
-user_url = str(input("[*] Enter target URL to scan"))
+user_url = str(input("[*] Enter target URL to scan:  "))
 urls = deque([user_url])
 
 scraped_urls = set()
@@ -26,7 +26,7 @@ try:
 
         path = url[:url.rfind('/')+1] if '/' in parts.path else url
 
-        print("[%] Processing %s" % (count, url))
+        print("[%d] Processing %s" % (count, url))
 
         try:
             response = requests.get(url)
